@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A little surprise for Manu 💗</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:16px;background:linear-gradient(145deg,#2b1026,#811b4d);font-family:Georgia,serif;color:#8b1745}
+main{width:min(100%,440px);min-height:88vh;padding:28px 22px;border:5px solid #ffe0eb;border-radius:35px;background:linear-gradient(150deg,#fff5f8,#f7b6ce);box-shadow:0 20px 60px #0008;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+section{display:none;width:100%;animation:in .4s ease}section.on{display:block}@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+h1{font-size:2.35rem;line-height:1.15;color:#a51650}h2{color:#a51650}p{line-height:1.65}.big{font-size:4rem}
+button{border:0;border-radius:30px;padding:13px 25px;background:#e93678;color:white;font-weight:bold;font-size:1rem;cursor:pointer;margin:8px}button.alt{background:white;color:#a51650;border:2px solid #e98ab0}
+input{width:54px;height:58px;text-align:center;font-size:24px;border:2px solid #e98ab0;border-radius:12px;margin:4px;background:#fff}
+.pad{display:grid;grid-template-columns:repeat(3,58px);gap:8px;justify-content:center;margin:18px}.pad button{margin:0;padding:12px;background:#fff;color:#a51650}
+.err{color:#bf174b;min-height:24px}.choices{position:relative;height:115px;margin-top:15px}.choices button{position:absolute;top:25px}.choices #yes{left:calc(50% - 110px)}.choices #no{left:calc(50% + 15px)}
+.balloons{display:grid;grid-template-columns:repeat(2,100px);gap:20px;justify-content:center;margin:24px}.balloon{height:115px;width:85px;border-radius:50%;background:linear-gradient(135deg,#ffbad1,#e82e75);position:relative;box-shadow:inset -9px -8px 12px #8d174333;cursor:pointer;animation:float 2s infinite}.balloon:nth-child(2){background:linear-gradient(135deg,#ffe0eb,#f06b9c)}.balloon:nth-child(3){background:linear-gradient(135deg,#ff9cbd,#ce2364)}.balloon:nth-child(4){background:linear-gradient(135deg,#ffd0df,#e64d88)}.balloon:after{content:"";position:absolute;top:112px;left:42px;height:28px;border-left:1px solid #9e6077}.balloon.gone{visibility:hidden}@keyframes float{50%{transform:translateY(-8px)}}
+#love{font-size:1.4rem;font-weight:bold;color:#d92368}.letter{font-size:4rem;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:#170716dd;z-index:4;align-items:center;justify-content:center;padding:14px}.modal.show{display:flex}.paper{background:#fff9ed;color:#633044;padding:25px;max-width:540px;max-height:90vh;overflow:auto;text-align:left;box-shadow:0 15px 50px #0008}.paper p{white-space:pre-line;line-height:1.8}
+</style>
+<main>
+<section id="lock" class="on"><div class="big">🔐💗</div><h1>A little surprise</h1><p>Someone special made this just for you.</p><h2>Enter passcode</h2><div id="dots"><input readonly><input readonly><input readonly><input readonly></div><div class="pad"><button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button><button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button><button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button><button data-k="del">⌫</button><button data-k="0">0</button><button data-k="clear">×</button></div><div class="err" id="error"></div></section>
+<section id="question"><div class="big">💗</div><h1>Happy Birthday, Manu!</h1><div class="big">🧸🎂🐻</div><h2>Are you excited for what's next?</h2><div class="choices"><button id="yes">Yes 💕</button><button class="alt" id="no">No 🙈</button></div><small>Choose carefully, birthday girl!</small></section>
+<section id="birthday"><div class="big">🎀🎉🎂</div><h1>Happy Birthday<br>Manaswini Kishan!</h1><p>Today is all about you, my kuchi.</p><button id="start">Open your surprise 💗</button></section>
+<section id="party"><h1>Pop all 4 balloons!</h1><p>Tap every balloon to find your message.</p><div class="balloons"><div class="balloon"></div><div class="balloon"></div><div class="balloon"></div><div class="balloon"></div></div><p id="left">4 balloons left</p><p id="love"></p><div id="letterlink" hidden><p>There is one more thing I want you to read…</p><div class="letter" id="open">💌</div><p>Tap the letter to open</p></div></section>
+</main>
+<div class="modal" id="modal"><article class="paper"><h2 style="text-align:center">A Message From My Heart 💗</h2><p>Dear Manu,
+
+You are the bestest thing in my life, you're my life fool. Oka ammayi lo amma, and daughter nee chustha anukola. My Magale; nijjam ga chinna pilla vi. Like cute cheeks, aa alaka, kopam, kisses, aa chupulu, mainly side eyes. Ela antha cute and sweet. My Bujji bangaram.
+
+Everyone makes mistakes, kid. I too did. And we know that; I don't wanna hide or etc. But I think we should have some break; know us more. Explore us more and at last choose us more. Maybe nuvvu online lo chala relations lo undachu. I don't know what happened then, but they are not Kishan. They gave up on you. But this guy Kishan is nuts. He will not.
+
+Evaru em anna, I love you. I know it's not time, but the day has arrived, so yes, I love you. We are we at last. Hope we will find us soon, love again more and more. I miss you, kiddo.
+
+With all my love,
+Kishan ❤️</p><button id="close">Close with love</button></article></div>
+<script>
+const $=id=>document.getElementById(id),screens=[...document.querySelectorAll('main section')];function show(id){screens.forEach(s=>s.classList.toggle('on',s.id===id))}
+let code='';function paint(){[...$('dots').children].forEach((x,i)=>x.value=code[i]||'')}
+function key(k){if(k==='del')code=code.slice(0,-1);else if(k==='clear')code='';else if(code.length<4)code+=k;paint();if(code.length===4){if(code==='1207')setTimeout(()=>show('question'),200);else{$('error').textContent='Wrong password. Please try again 💗';setTimeout(()=>{code='';paint();$('error').textContent=''},850)}}}
+document.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>key(b.dataset.k));
+document.onkeydown=e=>{if($('lock').classList.contains('on')){if(/^\d$/.test(e.key))key(e.key);if(e.key==='Backspace')key('del')}};
+$('yes').onclick=()=>show('birthday');const no=$('no');function dodge(){no.style.left=Math.random()*65+'%';no.style.top=Math.random()*70+'px'}no.onpointerenter=dodge;no.onclick=dodge;
+$('start').onclick=()=>show('party');let n=0;document.querySelectorAll('.balloon').forEach(b=>b.onclick=()=>{if(b.classList.contains('gone'))return;b.classList.add('gone');n++;$('left').textContent=(4-n)+' balloons left';if(n===4){$('love').textContent='I love you so much, kuchi ❤️';$('letterlink').hidden=false}});
+$('open').onclick=()=>$('modal').classList.add('show');$('close').onclick=()=>$('modal').classList.remove('show');$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.remove('show')};
+</script></html>
